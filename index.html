@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>青蛙外送王</title>
+	<script type="text/javascript">
+		alert("請點擊你想訂購的餐廳圖示瀏覽菜單,並在菜單旁選擇您要訂購之品項");
+		function sendout()
+		{
+		var quantity=document.getElementById('quantity');
+		var Buyer=document.getElementById('Buyer');
+		var phone=document.getElementById('phone');
+		var address=document.getElementById('address');
+		var Tea_price=document.tea.member.value.substr(-3,2).toString();
+		var Tea_extra=document.tea.extra.value.substr(-3,2).toString();
+		var Price=(Number(Tea_price)+Number(Tea_extra))*quantity.value;
+		if(confirm(Buyer.value+"您好!您訂購的餐點為"+document.tea.member.value+document.tea.extra.value+"共"+quantity.value+"杯\n共"+Price+"元\n"+"連絡電話為:"+phone.value+"\n寄送地址為"+address.value+"\n請確認!"))
+		{
+		alert("點餐成功,送達目的地將會電話通知您")
+		}
+		}
+	</script>
+</head>
+<body background="https://farm8.staticflickr.com/7851/47356424111_eab5c7de64_o.jpg">
+	<style type="text/css">
+	#tea_menu{
+	width:500px;
+	line-height:40px;
+	padding:none;
+	border:none;
+	margin-right:10px;
+	float:left;
+	}
+	#tea_Buy{
+	width:200px;
+	line-height:40px;
+	padding:20px;
+	border:2px green solid;
+	float:left;
+	}
+	#DIV1{
+	width:450px;
+	line-height:40px;
+	padding:50px;
+	border:none;
+	float:left;	
+	}
+	#DIV2{
+	width:200px;
+	line-height:40px;
+	padding:20px;
+	border:none;
+	float:left;
+	}
+	</style>
+
+<script>
+	department=new Array();
+	department[1]=["小品紅茶($25)", "翡翠綠茶($25)", "翡翠青茶($25)", "濃韻鐵觀音($25)", "宮廷普洱($25)", "府城冬瓜($25)", "決明麥茶($25)", "仙草干茶($25)", "消暑青草茶($30)", "古早味粉圓($35)", "純抹茶($35)"];
+	department[2]=["紅茶拿鐵($50)", "觀音拿鐵($50)", "綠茶拿鐵($50)", "翡翠拿鐵($50)", "普洱拿鐵($50)", "仙草拿鐵($50)", "冬瓜拿鐵($50)", "麥茶拿鐵($50)", "鮮奶多酚($55)", "老虎九(黑糖珍珠鮮奶)($55)", "紅豆厚鮮奶($55)", "可可拿鐵($60)", "抹茶拿鐵($65)"];
+	department[3]=["蔓越莓冰醋($30)", "鮮檸檬汁($40)", "冬瓜檸檬($40)", "鮮梅冰茶($40)", "檸檬愛玉($45)", "百香愛玉($45)", "金桔檸檬($45)", "龍眼蜜茶($45)", "蜂蜜檸檬愛玉($50)", "奇異果多多($60)"];
+	department[4]=["冬瓜青茶($30)", "冬瓜觀音($30)", "冬瓜紅茶($30)", "冬瓜麥茶($30)", "豆漿紅茶($35)", "梅釀綠茶($40)", "梅釀青茶($40)", "鮮檸檬紅茶($40)", "鮮檸檬綠茶($40)" ,"鮮檸檬青茶($40)", "綠茶多多($45)", "綠茶多酚($45)", "冰淇淋紅茶($45)", "冰淇淋綠茶($45)", "冰淇淋青茶($45)"];
+
+	function renew(index){
+		for(var i=1;i<department[index].length;i++)
+			document.tea.member.options[i]=new Option(department[index][i], department[index][i]);
+		document.tea.member.length=department[index].length;
+	}
+</script>
+<div>
+	<img src="https://farm8.staticflickr.com/7875/40393979023_a3ec785488_o.png">
+</div>
+<div>
+	<a href="#tea_menu"><img src="https://farm8.staticflickr.com/7813/33483423078_f2fdbf57a4_o.png" width="250" height="250" ></a>
+</div>
+<div style="height: 80px"></div>
+<div id="DIV1">
+	<a href="https://www.nfu.edu.tw/" target="_blank"><img src="https://www.nfu.edu.tw/images/logo.png" width="457" height="70"></a>
+</div>
+<div id="DIV2">
+	<img src="https://farm8.staticflickr.com/7917/40394953603_dfdbfef2a0_o.png" height="100">
+</div>
+<div style="height: 270px"></div>
+<div id="tea_menu"><p><img src="https://scontent.fkhh1-2.fna.fbcdn.net/v/t1.0-9/42860125_2143536659239556_3241168353775058944_n.jpg?_nc_cat=109&_nc_ht=scontent.fkhh1-2.fna&oh=03bd0bb37d6d1742f28006ab3fe9513c&oe=5D13DE85" width="487" height="864"></p> 
+</div>
+
+<div id="tea_Buy" style="background-color:#C2C2FF">
+<form name="tea">
+分類:
+<select style="width: 180px" onchange="renew(this.selectedIndex);">
+　	<option value="none">請選擇分類
+	<option value="Original">原味茶
+　	<option value="milk">濃厚鮮奶
+　	<option value="juice">鮮果汁
+　	<option value="Special">特調茶
+</select>
+<br>品項:
+<select name="member" style="width: 180px">
+	<option value="none">請先選擇分類
+</select>
+<br>加料區:
+<select name="extra" style="width: 180px">
+	<option value="不加料($ 0)">不加料($0)
+	<option value="加珍珠($ 5)">加珍珠($5)
+	<option value="加椰果($ 5)">加椰果($5)
+	<option value="加布丁($10)">加布丁($10)
+	<option value="加愛玉($10)">加愛玉($10)
+	<option value="加仙草($10)">加仙草($10)
+</select>
+<br>數量:
+<input type="text" id="quantity">
+<br>姓名:
+<input type="text" id="Buyer">
+<br>連絡電話:
+<input type="text" id="phone">
+<br>寄送地址:
+<input type="text" id="address">
+<input type="Button" value="送出" onclick="sendout();">
+</form>
+<p><a href="#top">回首頁</a></p>
+</div>
+<div style="clear:both;"></div>
+</body>
+</html>
